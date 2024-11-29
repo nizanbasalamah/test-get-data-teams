@@ -30,7 +30,8 @@
                 th.textContent = key;
                 headerRow.appendChild(th);
             });
-            table.appendChild(wrapperHeaderRow.appendChild(headerRow));
+            wrapperHeaderRow.appendChild(headerRow);
+            table.appendChild(wrapperHeaderRow);
 
             // Buat baris data untuk setiap item
             data.forEach(item => {
@@ -41,7 +42,8 @@
                     td.textContent = value;
                     row.appendChild(td);
                 });
-                table.appendChild(wrapperRow.appendChild(row));
+                wrapperRow.appendChild(row)
+                table.appendChild(wrapperRow);
             });
 
             return table;
