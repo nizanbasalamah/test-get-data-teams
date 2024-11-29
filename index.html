@@ -78,7 +78,7 @@
                 headers: {
                     'Content-Type': 'application/json', // Memberikan informasi bahwa data yang dikirim adalah JSON
                 },
-                body: JSON.stringify(data), // Mengonversi objek menjadi string JSON
+                body: data, // Mengonversi objek menjadi string JSON
             })
             .then((response) => {
                 if (!response.ok) {
