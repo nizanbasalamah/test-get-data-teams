@@ -76,16 +76,16 @@
             fetch(url, {
                 method: 'POST', // Menggunakan metode POST
                 headers: {
-                    'Content-Type': 'text/plain', // Memberikan informasi data
+                    'Content-Type': 'application/json', // Memberikan informasi data
                 },
-                body: data,
+                body: JSON.stringify(data),
                 redirect: 'follow'
             })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-                return response.text(); // Mengambil respons sebagai JSON (jika ada respons)
+                return response.json(); // Mengambil respons sebagai JSON (jika ada respons)
             })
             .then((result) => {
                 console.log('Success:', result); // Menampilkan hasil dari server
