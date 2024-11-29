@@ -85,7 +85,7 @@
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-                return response.json(); // Mengambil respons sebagai JSON (jika ada respons)
+                return response.text(); // Mengambil respons sebagai JSON (jika ada respons)
             })
             .then((result) => {
                 console.log('Success:', result); // Menampilkan hasil dari server
