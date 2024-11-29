@@ -76,15 +76,16 @@
             fetch(url, {
                 method: 'POST', // Menggunakan metode POST
                 headers: {
-                    'Content-Type': 'application/json', // Memberikan informasi bahwa data yang dikirim adalah JSON
+                    'Content-Type': 'text/plain', // Memberikan informasi data
                 },
-                body: data, // Mengonversi objek menjadi string JSON
+                body: data,
+                redirect: 'follow'
             })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-                return response.json(); // Mengambil respons sebagai JSON (jika ada respons)
+                return response.text(); // Mengambil respons sebagai JSON (jika ada respons)
             })
             .then((result) => {
                 console.log('Success:', result); // Menampilkan hasil dari server
@@ -104,10 +105,7 @@
             // fetchData(baseUrl, params); // Panggil fungsi fetchData
 
             const url = 'https://prod-58.southeastasia.logic.azure.com:443/workflows/164aa6742fb24b1ca642e0332e335121/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=um34yoDXKBgtZWWuGSaO1l92wt4EOIlQ1U2cM71hFm4';
-            const data = {
-                name: 'Nizan',
-                jobdesk: 'IT Support'
-            };
+            const data = "{\r\n\"name\":\"Nizan\",\"jobdesk\":\"IT Support\"\r\n}";
 
             sendData(url, data);
         });
