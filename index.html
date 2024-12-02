@@ -34,8 +34,8 @@
             table.appendChild(wrapperHeaderRow);
 
             // Buat baris data untuk setiap item
+            const wrapperRow = document.createElement("tbody");
             data.forEach(item => {
-                const wrapperRow = document.createElement("tbody");
                 const row = document.createElement("tr");
                 Object.values(item).forEach(value => {
                     const td = document.createElement("td");
@@ -43,8 +43,8 @@
                     row.appendChild(td);
                 });
                 wrapperRow.appendChild(row)
-                table.appendChild(wrapperRow);
             });
+            table.appendChild(wrapperRow);
 
             return table;
         }
